@@ -1,0 +1,196 @@
+.idcard-container {
+  max-width: 1024px;
+  margin: auto;
+  padding: 1rem;
+}
+
+.button-group {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 0.25rem;
+  border: none;
+  cursor: pointer;
+}
+.btn-blue {
+  background-color: #3b82f6;
+}
+.btn-blue:hover {
+  background-color: #2563eb;
+}
+.btn-green {
+  background-color: #22c55e;
+}
+.btn-green:hover {
+  background-color: #16a34a;
+}
+
+.card-wrapper {
+  display: flex;
+  border: 2px solid black;
+  background-color: white;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+
+.card-front,
+.card-back {
+  width: 50%;
+  padding: 1rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.title-img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.photo-section {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-around;
+}
+
+.vertical-text {
+  font-size: 10px;
+  font-weight: bold;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+}
+
+.photo-box {
+  width: 96px;
+  height: 112px;
+  border: 1px solid #d1d5db;
+}
+
+.photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 66%;
+}
+
+.note {
+  font-size: 10px;
+  padding: 0.25rem;
+  margin-top: 1rem;
+  border: 2px solid #de3444;
+  color: #374151;
+}
+
+.number {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+  text-align: center;
+  letter-spacing: 0.2em;
+}
+
+.red-line {
+  border-top: 2px solid #dc2626;
+  margin-top: 0.5rem;
+}
+
+.slogan {
+  text-align: center;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-weight: 600;
+  color: #dc2626;
+}
+
+.black-text {
+  color: black;
+}
+
+.divider {
+  border-left: 2px dashed black;
+}
+
+.address-section {
+  display: flex;
+  margin-top: 1rem;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.address {
+  width: 66%;
+}
+
+.qrcode-box {
+  width: 160px;
+  height: 160px;
+}
+
+.qrcode {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.dot-line {
+  border-top: 1px dotted #9ca3af;
+  width: 66%;
+  margin: auto;
+}
+
+.vid {
+  margin-top: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.5rem;
+  font-size: 0.875rem;
+  margin-top: 0.5rem;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.separator {
+  width: 1px;
+  height: 20px;
+  background-color: #9ca3af;
+}
