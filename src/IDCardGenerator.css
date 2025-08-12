@@ -110,9 +110,11 @@
 }
 
 .red-line {
-  border-top: 2px solid #dc2626;
-  margin-top: 0.5rem;
+  height: 2px;
+  background-color: red;
+  margin-top: 8px; /* adjust spacing */
 }
+
 
 .slogan {
   text-align: center;
