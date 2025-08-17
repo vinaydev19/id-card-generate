@@ -1,11 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 
 
 function AadhaarCard() {
     const [formData, setFormData] = useState({
         name: "",
         dob: "",
+        nameTranslated: "",
         gender: "",
         photo: null,
         aadhaar: "",
@@ -16,7 +18,7 @@ function AadhaarCard() {
     const navigate = useNavigate();
 
 
-    const handleChange = (e) => {
+    const handleChange = async (e) => {
         const { name, value, files } = e.target;
         setFormData((prev) => ({
             ...prev,
@@ -50,6 +52,21 @@ function AadhaarCard() {
                         onChange={handleChange}
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
                         required
+                    />
+                </div>
+
+
+                {/* Translated Name */}
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-medium mb-1">
+                        Full Name (Translated)
+                    </label>
+                    <input
+                        type="text"
+                        name="nameTranslated"
+                        value={formData.nameTranslated}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
                     />
                 </div>
 

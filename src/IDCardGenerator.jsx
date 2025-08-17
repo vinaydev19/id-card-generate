@@ -73,16 +73,20 @@ function IDCardGenerator() {
                         </div>
 
                         <div className="photo-section">
-                            {/* <div className="vertical-text">Aadhaar no. issued: 20/06/2013</div> */}
-                            <div className="photo-box">
-                                {data?.photo ? (
-                                    <img src={URL.createObjectURL(data.photo)} alt="User" className="photo" />
-                                ) : null}
+                            <div className="photo-wrapper">
+                                <div className="vertical-text">Aadhaar no. issued: 20/06/2013</div>
+                                <div className="photo-box">
+                                    {data?.photo ? (
+                                        <img src={URL.createObjectURL(data.photo)} alt="User" className="photo" />
+                                    ) : null}
+                                </div>
                             </div>
+
                             <div className="details">
+                                <p>{data?.nameTranslated}</p>
                                 <p>{data?.name}</p>
-                                <p>Date of Birth: {data?.dob}</p>
-                                <p>Male / {data?.gender}</p>
+                                <p>Date of Birth: {data?.dob ? new Date(data.dob).toLocaleDateString("en-GB") : ""}</p>
+                                <p>Male/ {data?.gender}</p>
                                 <div className="note">
                                     <p><strong>आधार पहचान का प्रमाण है, नागरिकता या जन्मतिथि का नहीं।</strong> इसका उपयोग सत्यापन (ऑनलाइन प्रमाणीकरण, या क्यूआर कोड / ऑफ़लाइन एक्सएमएल की स्कैनिंग) के साथ किया जाना चाहिए।</p>
                                     <p><strong>Aadhaar is proof of identity, not of citizenship or date of birth.</strong> It should be used with verification (online authentication, or scanning of QR code / offline XML).</p>
@@ -90,11 +94,14 @@ function IDCardGenerator() {
                             </div>
                         </div>
 
+
                         <div className="number">
                             {String(data?.aadhaar).replace(/(\d{4})(?=\d)/g, '$1 ')}
                         </div>
                         <div className="red-line"></div>
-                        <div className="slogan">मेरा <span className="black-text">आधार</span>, मेरी पहचान</div>
+                        <div className='slogan-line'>
+                            <div className="black-text">मेरा <span className="slogan">आधार</span>, मेरी पहचान</div>
+                        </div>
                     </div>
 
                     {/* Middle Divider */}
