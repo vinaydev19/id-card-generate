@@ -86,7 +86,10 @@ function IDCardGenerator() {
                                 <p>{data?.nameTranslated}</p>
                                 <p>{data?.name}</p>
                                 <p>Date of Birth: {data?.dob ? new Date(data.dob).toLocaleDateString("en-GB") : ""}</p>
-                                <p>Male/ {data?.gender}</p>
+                                <p>
+                                    {data?.gender?.charAt(0).toUpperCase() + data?.gender?.slice(1)}/
+                                    {data?.gender?.charAt(0).toUpperCase() + data?.gender?.slice(1)}
+                                </p>
                                 <div className="note">
                                     <p><strong>आधार पहचान का प्रमाण है, नागरिकता या जन्मतिथि का नहीं।</strong> इसका उपयोग सत्यापन (ऑनलाइन प्रमाणीकरण, या क्यूआर कोड / ऑफ़लाइन एक्सएमएल की स्कैनिंग) के साथ किया जाना चाहिए।</p>
                                     <p><strong>Aadhaar is proof of identity, not of citizenship or date of birth.</strong> It should be used with verification (online authentication, or scanning of QR code / offline XML).</p>
