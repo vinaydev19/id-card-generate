@@ -40,7 +40,7 @@ function AadhaarCardGenerator() {
         const canvas = await html2canvas(element, { scale: 2 });
         const imgData = canvas.toDataURL("image/png");
 
-        const pdf = new jsPDF("landscape", "mm", "a4");
+        const pdf = new jsPDF("portrait", "mm", "a4");
         const imgWidth = 280; // Fit to A4 width
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);

@@ -39,13 +39,13 @@ body {
   border: 1px solid black;
   background-color: white;
   overflow: hidden;
-  width: 800px; /* double width (front + back side by side) */
-  height: 280px; /* fixed height */
+  width: 650px; /* double width (front + back side by side) */
+  height: 210px; /* fixed height */
 }
 
 .card-front,
 .card-back {
-  width: 400px; /* each side has fixed width */
+  width: 325px; /* each side has fixed width */
   height: 300px; /* fixed height */
   padding: 0.5rem;
   box-sizing: border-box;
@@ -58,19 +58,19 @@ body {
 }
 
 .logo {
-  width: 45px;
-  height: 30px;
+  width: 30px;
+  height: 25px;
   object-fit: contain;
 }
 
 .title-img {
-  height: 30px;
+  height: 25px;
   object-fit: contain;
 }
 
 .photo-section {
   display: flex;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
   gap: 0.5rem;
 }
 
@@ -81,22 +81,22 @@ body {
 }
 
 .photo-box {
-  width: 90px;
-  height: 100px;
+  width: 60px;
+  height: 70px;
   margin-left: 10px;
   position: relative; /* new: make this the anchor */
 }
 
 .vertical-text {
-  font-size: 8px;
+  font-size: 6px;
   font-weight: bold;
   transform: rotate(-90deg);
   transform-origin: top left;
   white-space: nowrap;
   line-height: 1;
   position: absolute;
-  top: 115px; /* center vertically */
-  left: -5px; /* snug against left border of photo */
+  top: 90px; /* center vertically */
+  left: -2px; /* snug against left border of photo */
 }
 
 .photo {
@@ -113,24 +113,23 @@ body {
 }
 
 .details {
-  font-size: 0.7rem;
-  line-height: 1.5;
+  font-size: 0.5rem;
+  /* line-height: 1.5; */
 }
 
 .note {
-  font-size: 7.5px;
-  padding: 0.25rem;
-  margin-top: 0.5rem;
+  font-size: 0.36rem;
+  padding: 0.1rem;
+  margin-top: 0.2rem;
   border: 2px solid #de3444;
   color: #374151;
 }
 
 .number {
-  margin-top: 0.8rem;
-  font-size: 1rem;
+  margin-top: 0.3rem;
+  font-size: 0.8rem;
   font-weight: bold;
   text-align: center;
-  letter-spacing: 0.2em;
 }
 
 .red-line {
@@ -142,13 +141,13 @@ body {
 .slogan-line {
   height: 2px;
   margin-top: 1px;
-  font-size: 0.875rem;
+  font-size: 0.7rem;
   text-align: center;
 }
 
 .slogan {
   text-align: center;
-  font-size: 0.875rem;
+  font-size: 0.7rem;
   margin-top: 0.25rem;
   font-weight: 600;
   color: #dc2626;
@@ -164,10 +163,10 @@ body {
 
 .address-section {
   display: flex;
-  margin-top: 1.4rem;
+  margin-top: 1rem;
   justify-content: space-between;
   align-items: flex-start;
-  font-size: 0.75rem;
+  font-size: 0.6rem;
 }
 
 .address {
@@ -175,8 +174,8 @@ body {
 }
 
 .qrcode-box {
-  width: 120px;
-  height: 120px;
+  width: 80px;
+  height: 80px;
 }
 
 .qrcode {
@@ -188,12 +187,12 @@ body {
 .dot-line {
   border-top: 1px dotted #9ca3af;
   width: 66%;
-  margin: 5px auto auto;
+  margin: 3px auto auto;
 }
 
 .vid {
-  /* margin-top: 0.25rem; */
-  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  font-size: 0.6rem;
   font-weight: 600;
   text-align: center;
 }
@@ -203,7 +202,7 @@ body {
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
   /* margin-top: 0.5rem; */
 }
 
@@ -214,8 +213,8 @@ body {
 }
 
 .icon {
-  width: 15px;
-  height: 15px;
+  width: 10px;
+  height: 10px;
 }
 
 .bold {
