@@ -1,21 +1,19 @@
-import React, { useRef, useState } from 'react';
-import govlogo from "./assets/Emblem_of_India.svg";
-import aadhaarlogo from "./assets/Daco_232542.png";
-import photo from "./assets/slider-3.jpg";
-import telephone from "./assets/old-typical-phone.png";
-import mail from "./assets/mail.png";
-import internet from "./assets/globe.png";
-import front from "./assets/front.png";
-import back from "./assets/back.png";
-import qrcode from "./assets/qrcode.png";
-import './IDCardGenerator.css';
+import React, { useRef } from 'react';
+import govlogo from "./../assets/Emblem_of_India.svg";
+import aadhaarlogo from "./../assets/Daco_232542.png";
+import telephone from "./../assets/old-typical-phone.png";
+import mail from "./../assets/mail.png";
+import internet from "./../assets/globe.png";
+import front from "./../assets/front.png";
+import back from "./../assets/back.png";
+import './AadhaarCardGenerator.css';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import { useLocation } from 'react-router-dom';
 import { QRCodeSVG } from 'qrcode.react';
 
 
-function IDCardGenerator() {
+function AadhaarCardGenerator() {
     const cardRef = useRef();
 
     const location = useLocation();
@@ -163,4 +161,4 @@ function IDCardGenerator() {
     );
 }
 
-export default IDCardGenerator;
+export default AadhaarCardGenerator;

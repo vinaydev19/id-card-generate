@@ -1,9 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
-
-function AadhaarCard() {
+function AadhaarCardForm() {
     const [formData, setFormData] = useState({
         name: "",
         dob: "",
@@ -170,4 +168,4 @@ function AadhaarCard() {
     );
 }
 
-export default AadhaarCard;
+export default AadhaarCardForm;
