@@ -23,7 +23,7 @@ function PanCardForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/aadhaar-card/generator", { state: formData }); // 📤 send data
+    navigate("/pan-card/generator", { state: formData }); // 📤 send data
   };
 
   return (
@@ -115,7 +115,6 @@ function PanCardForm() {
             value={formData.panNo}
             onChange={handleChange}
             maxLength="10"
-            pattern="\d{12}"
             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
             required
           />
