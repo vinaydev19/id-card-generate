@@ -30,7 +30,7 @@ function AadhaarCardGenerator() {
 
         const link = document.createElement("a");
         link.href = data;
-        link.download = "Aadhaar_Card.png";
+        link.download = `${data?.name || "Aadhaar"}_Card.png`;
         link.click();
     };
 
@@ -44,7 +44,7 @@ function AadhaarCardGenerator() {
         const imgWidth = 280; // Fit to A4 width
         const imgHeight = (canvas.height * imgWidth) / canvas.width;
         pdf.addImage(imgData, "PNG", 10, 10, imgWidth, imgHeight);
-        pdf.save("Aadhaar_Card.pdf");
+        pdf.save(`${data?.name || "Aadhaar"}_Card.pdf`);
     };
 
     return (
