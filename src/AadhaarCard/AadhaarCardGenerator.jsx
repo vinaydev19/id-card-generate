@@ -17,6 +17,17 @@ function AadhaarCardGenerator() {
     const location = useLocation();
     const data = location.state;
 
+    const addressLabels = {
+        english: "Address:",
+        hindi: "पता:",
+        marathi: "पत्ता:",
+        telugu: "చిరునామా:",
+    };
+
+    const getAddressLabel = () => {
+        return addressLabels[data?.language] || "Address:";
+    };
+
     // 📸 Download as Image
     const handleDownloadImage = async () => {
         const element = cardRef.current;
@@ -112,9 +123,22 @@ function AadhaarCardGenerator() {
 
                         <div className={styles.addressSection}>
                             <div className={styles.address}>
+                                {/* Show translated version if available */}
+                                {data?.addressTranslated && (
+                                    <>
+                                        <p>
+                                            {data?.language === "hindi" && "पता:"}
+                                            {data?.language === "marathi" && "पत्ता:"}
+                                            {data?.language === "telugu" && "చిరునామా:"}
+                                        </p>
+                                        <p>{data?.addressTranslated}</p>
+                                    </>
+                                )}
+                                {/* Always show English first */}
                                 <p>Address:</p>
                                 <p>{data?.address}</p>
                             </div>
+
                             <div className={styles.qrcodeBox}>
                                 <QRCodeSVG
                                     value={JSON.stringify(data)}
@@ -124,6 +148,7 @@ function AadhaarCardGenerator() {
                                 />
                             </div>
                         </div>
+
 
                         <div className={styles.number}>
                             {String(data?.aadhaar).replace(/(\d{4})(?=\d)/g, '$1 ')}

@@ -11,6 +11,8 @@ function AadhaarCardForm() {
         aadhaar: "",
         vid: "",
         address: "",
+        addressTranslated: "",
+        language: "",
     });
 
     const navigate = useNavigate();
@@ -53,6 +55,24 @@ function AadhaarCardForm() {
                     />
                 </div>
 
+                {/* Language Selection */}
+                <div className="mb-4">
+                    <label className="block text-gray-700 font-medium mb-1">
+                        Select Language for Translation
+                    </label>
+                    <select
+                        name="language"
+                        value={formData.language}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
+                        required
+                    >
+                        <option value="">Select language</option>
+                        <option value="hindi">Hindi</option>
+                        <option value="marathi">Marathi</option>
+                        <option value="telugu">Telugu</option>
+                    </select>
+                </div>
 
                 {/* Translated Name */}
                 <div className="mb-4">
@@ -62,6 +82,7 @@ function AadhaarCardForm() {
                     <input
                         type="text"
                         name="nameTranslated"
+                        placeholder="Enter full name"
                         value={formData.nameTranslated}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
@@ -142,14 +163,30 @@ function AadhaarCardForm() {
                 </div>
 
                 {/* Address */}
-                <div className="mb-6">
+                <div className="mb-1">
                     <label className="block text-gray-700 font-medium mb-1">Address</label>
                     <textarea
                         name="address"
-                        placeholder="Enter your address (max 280 characters)"
+                        placeholder="Enter your address (max 110 characters)"
                         value={formData.address}
                         onChange={handleChange}
-                        maxLength="280"
+                        maxLength="110"
+                        rows="4"
+                        className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
+                        required
+                    ></textarea>
+                </div>
+
+
+                {/* address translated */}
+                <div className="mb-6">
+                    <label className="block text-gray-700 font-medium mb-1">Address (Translated)</label>
+                    <textarea
+                        name="addressTranslated"
+                        placeholder="Enter your address (max 110 characters)"
+                        value={formData.addressTranslated}
+                        onChange={handleChange}
+                        maxLength="110"
                         rows="4"
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
                         required
