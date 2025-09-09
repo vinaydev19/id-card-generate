@@ -65,7 +65,6 @@ function AadhaarCardForm() {
                         value={formData.language}
                         onChange={handleChange}
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
-                        required
                     >
                         <option value="">Select language</option>
                         <option value="hindi">Hindi</option>
@@ -189,7 +188,6 @@ function AadhaarCardForm() {
                         maxLength="110"
                         rows="4"
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
-                        required
                     ></textarea>
                 </div>
 
