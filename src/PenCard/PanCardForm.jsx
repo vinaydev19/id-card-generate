@@ -47,6 +47,7 @@ function PanCardForm() {
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
             required
+            // maxLength='30'
           />
         </div>
 
@@ -63,6 +64,7 @@ function PanCardForm() {
             onChange={handleChange}
             className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
             placeholder="Enter father's name"
+            // maxLength='30'
           />
         </div>
 

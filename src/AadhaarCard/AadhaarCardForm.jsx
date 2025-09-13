@@ -169,7 +169,7 @@ function AadhaarCardForm() {
                         placeholder="Enter your address (max 110 characters)"
                         value={formData.address}
                         onChange={handleChange}
-                        maxLength="110"
+                        maxLength="90"
                         rows="4"
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
                         required
@@ -185,7 +185,7 @@ function AadhaarCardForm() {
                         placeholder="Enter your address (max 110 characters)"
                         value={formData.addressTranslated}
                         onChange={handleChange}
-                        maxLength="110"
+                        maxLength="90"
                         rows="4"
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
                     ></textarea>

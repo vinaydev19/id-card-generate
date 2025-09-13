@@ -76,26 +76,26 @@
 /* Text Fields */
 .details {
   position: absolute;
-  font-size: 12px;
+  font-size: 0.5rem;
   color: #000;
   z-index: 1;
 }
 .name {
-  top: 113px;
+  top: 118px;
   left: 22px;
 }
 .father {
-  top: 138px;
+  top: 145px;
   left: 22px;
 }
 .dob {
-  top: 173px;
+  top: 178px;
   left: 22px;
 }
 .pan {
   top: 73px;
   left: 110px;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 /* Signature */
