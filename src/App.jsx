@@ -4,6 +4,8 @@ import AadhaarCardForm from './AadhaarCard/AadhaarCardForm'
 import AadhaarCardGenerator from './AadhaarCard/AadhaarCardGenerator'
 import PanCardForm from "./PenCard/PanCardForm"
 import PanCardGenerator from "./PenCard/PanCardGenerator"
+import VoterIDForm from './VoterId/VoterIDForm';
+import VoterIDGenerator from './VoterId/VoterIDGenerator';
 
 function App() {
   const router = createBrowserRouter(
@@ -14,6 +16,8 @@ function App() {
         <Route path="/aadhaar-card/generator" element={<AadhaarCardGenerator />} />
         <Route path="/pan-card" element={<PanCardForm />} />
         <Route path="/pan-card/generator" element={<PanCardGenerator />} />
+        <Route path="/voter-id-card" element={<VoterIDForm />} />
+        <Route path="/voter-id-card/generator" element={<VoterIDGenerator />} />
       </>
     )
   )
