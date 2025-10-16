@@ -3,7 +3,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import html2canvas from "html2canvas";
 import jsPDF from "jspdf";
 import { QRCodeSVG } from "qrcode.react";
-import voterBg from "../assets/voter-id.png";
+import voterBg from "../assets/voteridbg.png";
 import styles from "./VoterIDGenerator.module.css";
 
 function VoterIDGenerator() {
