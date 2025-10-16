@@ -24,9 +24,67 @@ function AadhaarCardGenerator() {
         telugu: "చిరునామా:",
     };
 
+    const genderLabels = {
+        english: {
+            male: "Male",
+            female: "Female",
+        },
+        hindi: {
+            male: "पुरुष",
+            female: "महिला",
+        },
+        marathi: {
+            male: "पुरुष",
+            female: "महिला",
+        },
+        telugu: {
+            male: "పురుషుడు",
+            female: "మహిళ",
+        },
+    };
+
+    const slogans = {
+        hindi: { before: "मेरा", aadhaar: "आधार", after: ", मेरी पहचान" },
+        marathi: { before: "माझे", aadhaar: "आधार", after: ", माझी ओळख" },
+        telugu: { before: "నా", aadhaar: "ఆధార్", after: ", నా గుర్తింపు" },
+    };
+
+
+    const getSloganParts = () => {
+        return slogans[data?.language] || slogans.hindi;
+    };
+
+
     const getAddressLabel = () => {
         return addressLabels[data?.language] || "Address:";
     };
+
+    const getGenderLabel = () => {
+        if (!data?.gender) return "";
+        const lang = data?.language || "english";
+        const genderKey = data.gender.toLowerCase();
+        return genderLabels[lang]?.[genderKey] || data.gender;
+    };
+
+    const getIssuedDate = () => {
+        const today = new Date();
+
+        // pick random years between 6 and 7 years ago
+        const randomYears = Math.floor(Math.random() * 2) + 6;
+        const startYear = today.getFullYear() - randomYears;
+
+        // pick random month (0–11)
+        const randomMonth = Math.floor(Math.random() * 12);
+
+        // pick random day depending on month/year
+        const daysInMonth = new Date(startYear, randomMonth + 1, 0).getDate();
+        const randomDay = Math.floor(Math.random() * daysInMonth) + 1;
+
+        const issued = new Date(startYear, randomMonth, randomDay);
+
+        return issued.toLocaleDateString("en-GB"); // DD/MM/YYYY
+    };
+
 
     // 📸 Download as Image
     const handleDownloadImage = async () => {
@@ -78,7 +136,9 @@ function AadhaarCardGenerator() {
 
                         <div className={styles.photoSection}>
                             <div className={styles.photoWrapper}>
-                                <div className={styles.verticalText}>Aadhaar no. issued: 20/06/2013</div>
+                                <div className={styles.verticalText}>
+                                    Aadhaar no. issued: {getIssuedDate()}
+                                </div>
                                 <div className={styles.photoBox}>
                                     {data?.photo ? (
                                         <img src={URL.createObjectURL(data.photo)} alt="User" className={styles.photo} />
@@ -91,9 +151,9 @@ function AadhaarCardGenerator() {
                                 <p>{data?.name}</p>
                                 <p>Date of Birth: {data?.dob ? new Date(data.dob).toLocaleDateString("en-GB") : ""}</p>
                                 <p>
-                                    {data?.gender?.charAt(0).toUpperCase() + data?.gender?.slice(1)}/
-                                    {data?.gender?.charAt(0).toUpperCase() + data?.gender?.slice(1)}
+                                    {getGenderLabel()} / {genderLabels["english"][data?.gender?.toLowerCase()]}
                                 </p>
+
                                 <div className={styles.note}>
                                     <p><strong>आधार पहचान का प्रमाण है, नागरिकता या जन्मतिथि का नहीं।</strong> इसका उपयोग सत्यापन (ऑनलाइन प्रमाणीकरण, या क्यूआर कोड / ऑफ़लाइन एक्सएमएल की स्कैनिंग) के साथ किया जाना चाहिए।</p>
                                     <p><strong>Aadhaar is proof of identity, not of citizenship or date of birth.</strong> It should be used with verification (online authentication, or scanning of QR code / offline XML).</p>
@@ -106,7 +166,11 @@ function AadhaarCardGenerator() {
                         </div>
                         <div className={styles.redLine}></div>
                         <div className={styles.sloganLine}>
-                            <div className={styles.blackText}>मेरा <span className={styles.slogan}>आधार</span>, मेरी पहचान</div>
+                            <div className={styles.blackText}>
+                                {getSloganParts().before}{" "}
+                                <span className={styles.slogan}>{getSloganParts().aadhaar}</span>
+                                {getSloganParts().after}
+                            </div>
                         </div>
                     </div>
 
