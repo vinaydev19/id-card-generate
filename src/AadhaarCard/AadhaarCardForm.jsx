@@ -166,10 +166,10 @@ function AadhaarCardForm() {
                     <label className="block text-gray-700 font-medium mb-1">Address</label>
                     <textarea
                         name="address"
-                        placeholder="Enter your address (max 110 characters)"
+                        placeholder="Enter your address (max 125 characters)"
                         value={formData.address}
                         onChange={handleChange}
-                        maxLength="90"
+                        maxLength="125"
                         rows="4"
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
                         required
@@ -182,10 +182,10 @@ function AadhaarCardForm() {
                     <label className="block text-gray-700 font-medium mb-1">Address (Translated)</label>
                     <textarea
                         name="addressTranslated"
-                        placeholder="Enter your address (max 110 characters)"
+                        placeholder="Enter your address (max 125 characters)"
                         value={formData.addressTranslated}
                         onChange={handleChange}
-                        maxLength="90"
+                        maxLength="125"
                         rows="4"
                         className="w-full px-4 py-2 border rounded-lg focus:ring focus:ring-blue-300 outline-none"
                     ></textarea>
