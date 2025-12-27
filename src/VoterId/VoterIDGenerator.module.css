@@ -1,167 +1,238 @@
 .voterContainer {
-  font-family: "Roboto", sans-serif;
-  max-width: 1024px;
-  margin: auto;
+  font-family: Roboto, sans-serif;
   padding: 1rem;
 }
 
-/* === BUTTONS === */
 .buttonGroup {
   display: flex;
   gap: 1rem;
   margin-bottom: 1rem;
 }
 
-.btn {
+.btnBlue,
+.btnGreen {
   padding: 0.5rem 1rem;
-  color: white;
-  border-radius: 0.25rem;
   border: none;
+  color: white;
   cursor: pointer;
-  font-size: 0.9rem;
 }
 
 .btnBlue {
-  background-color: #3b82f6;
-}
-.btnBlue:hover {
-  background-color: #2563eb;
+  background: #2563eb;
 }
 
 .btnGreen {
-  background-color: #22c55e;
-}
-.btnGreen:hover {
-  background-color: #16a34a;
+  background: #16a34a;
 }
 
-/* === CARD LAYOUT === */
 .cardWrapper {
-  display: flex;
-  background-size: cover;
-  background-position: center;
-  overflow: hidden;
   width: 650px;
   height: 210px;
+  display: flex;
+  background-size: cover;
 }
 
 .cardFront,
 .cardBack {
   width: 325px;
   height: 210px;
-  padding: 0.5rem;
-  box-sizing: border-box;
-}
-
-.divider {
-  border-left: 2px dashed #000;
-}
-
-/* === FRONT SIDE === */
-.photoSection {
-  display: flex;
-  margin-top: 1rem;
-  gap: 0.5rem;
   position: relative;
+  padding: 6px;
 }
 
-.photoBox {
-  width: 80px;
-  height: 105px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+/* HEADER */
+.topHeader {
+  text-align: center;
+}
+
+.headerHindi {
+  font-size: 0.7rem;
+  font-weight: bold;
+}
+
+.headerEnglish {
+  font-size: 0.65rem;
+  font-weight: bold;
+}
+
+.headerLine {
   position: absolute;
-  top: px;
+  top: 25px;
+  left: 50px;
+  width: 65%;
+  height: 1.5px;
+  background: black;
+  margin: 0.5px auto;
+}
+
+/* FRONT */
+.photoSection {
+  position: relative;
 }
 
 .voterId {
   position: absolute;
-  top: 30px;
+  top: 16px;
   left: 10px;
   font-size: 0.7rem;
   font-weight: bold;
+}
+
+.photoBox {
+  position: absolute;
+  top: 38px;
+  left: 5px;
+  width: 85px;
+  height: 110px;
 }
 
 .photo {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  position: absolute;
-  top: 57px;
-  left: 3px;
 }
 
 .details {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  gap: 0.1rem;
+  gap: 0.15rem;
   font-size: 0.55rem;
   width: 70%;
   color: #111;
   position: absolute;
   left: 95px;
-  top: 55px;
+  top: 40px;
+  line-height: 1.25;
 }
 
-.bold {
-  font-weight: 600;
-}
-
-.translated {
+/* Bold only specific lines */
+.boldText {
   font-weight: 700;
-  font-size: 0.6rem;
 }
 
-/* === BACK SIDE === */
-.backContent {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-top: 1rem;
-  font-size: 0.55rem;
-  position: relative;
-  font-weight: bold;
-}
-/* Back Side Address */
-.addressSection {
-  display: flex;
-  flex-direction: column;
-  gap: 0.2rem;
-  width: 65%;
-  margin-left: 145px; /* adjust for QR code space */
-  margin-top: -5px;
-  font-size: 0.55rem;
-  font-weight: bold;
-  line-height: 1.2;
-  color: #111;
-}
-
-
-.addressTrans {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-}
-
-.addressEng {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  margin-top: 0.2rem;
-}
-
-/* QR code stays in left side */
-.qrBox {
-  width: 100px;
-  height: 100px;
-  background-color: white;
-  padding: 5px;
+.bottomText {
   position: absolute;
-  top: 18px;
-  left: 10px;
+  bottom: 5px;
+  width: 100%;
+  text-align: center;
+  font-size: 0.55rem;
+}
+
+/* BACK */
+.backContent {
+  position: relative;
+  height: 100%;
+}
+
+.qrBox {
+  position: absolute;
+  top: 1px;
+  left: 10px; /* 🔧 move left/right */
+  width: 120px;
+}
+
+/* Top image */
+.qrTop {
   display: flex;
-  justify-content: center;
+  justify-content: center; /* center / flex-start / flex-end */
+}
+
+.qrTop img {
+  width: 30px;
+}
+
+/* QR itself */
+.qrCenter {
+  background-color: white;
+}
+.qrcodesvg {
+  padding: 5px;
+}
+
+/* Bottom text */
+.qrBottom {
+  margin-top: 4px;
+  text-align: center;
+}
+
+.qrText {
+  font-size: 0.4rem;
+}
+
+.qrId {
+  margin-top: 10px;
+  font-size: 0.6rem;
+  font-weight: bold;
+}
+
+.addressSection {
+  position: absolute;
+  top: 20px; /* 🔧 adjust up/down */
+  left: 145px;
+  width: 165px;
+  font-size: 0.55rem;
+  line-height: 1.3;
+}
+
+/* Officer text at bottom */
+.officerText {
+  position: absolute;
+  bottom: 45px; /* 🔧 adjust vertical spacing */
+  left: 145px;
+  width: 165px;
+  font-size: 0.55rem;
+  font-weight: bold;
+  line-height: 1.25;
+}
+
+.downloadDate {
+  position: absolute;
+  top: 40px;
+}
+
+/* FOOTER */
+.cardFooter {
+  position: absolute;
+  bottom: 4px;
+  left: 0;
+  width: 100%;
+  font-size: 0.5rem;
+}
+
+/* Left phone wrapper */
+.footerLeft {
+  position: absolute;
+  top: -15px;
+  left: 20px;
+}
+
+/* 🔥 FIXED HEIGHT + ABSOLUTE CENTER */
+.footerItem {
+  position: relative;
+  height: 12px;              /* 🔧 controls vertical alignment */
+  display: flex;
   align-items: center;
+}
+
+/* Icon */
+.phoneIcon {
+  width: 10px;
+  height: 10px;
+  display: block;
+}
+
+/* Text */
+.footerText {
+  margin-left: 3px;
+  line-height: 12px;         /* 🔥 MATCH container height */
+  display: block;
+}
+
+/* Center website */
+.footerCenter {
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  line-height: 12px;
 }
