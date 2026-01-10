@@ -39,6 +39,78 @@ function VoterIDGenerator() {
     link.click();
   };
 
+  const getRandomPastDate = (minDays = 5, maxDays = 15) => {
+    const today = new Date();
+
+    const randomDays =
+      Math.floor(Math.random() * (maxDays - minDays + 1)) + minDays;
+
+    const pastDate = new Date(today);
+    pastDate.setDate(today.getDate() - randomDays);
+
+    const day = String(pastDate.getDate()).padStart(2, "0");
+    const month = String(pastDate.getMonth() + 1).padStart(2, "0");
+    const year = String(pastDate.getFullYear()).slice(-2);
+
+    return `${day}-${month}-${year}`;
+  };
+
+  const downloadDate = React.useMemo(
+    () => getRandomPastDate(5, 15),
+    []
+  );
+
+
+  const formatDOB = (dob) => {
+    if (!dob) return "";
+    const date = new Date(dob);
+    const day = String(date.getDate()).padStart(2, "0");
+    const month = String(date.getMonth() + 1).padStart(2, "0");
+    const year = date.getFullYear();
+    return `${day}-${month}-${year}`;
+  };
+
+  const convertToGrayscale = (file) => {
+    return new Promise((resolve) => {
+      const img = new Image();
+      img.src = URL.createObjectURL(file);
+
+      img.onload = () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = img.width;
+        canvas.height = img.height;
+        const ctx = canvas.getContext("2d");
+
+        ctx.drawImage(img, 0, 0);
+
+        const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+        const data = imageData.data;
+
+        for (let i = 0; i < data.length; i += 4) {
+          const avg = (data[i] + data[i + 1] + data[i + 2]) / 3;
+          data[i] = avg;     // R
+          data[i + 1] = avg; // G
+          data[i + 2] = avg; // B
+        }
+
+        ctx.putImageData(imageData, 0, 0);
+        resolve(canvas.toDataURL("image/png"));
+      };
+    });
+  };
+
+  const [bwPhotoUrl, setBwPhotoUrl] = React.useState(null);
+
+  useEffect(() => {
+    if (!data?.photo) return;
+
+    convertToGrayscale(data.photo).then(setBwPhotoUrl);
+
+    return () => {
+      if (bwPhotoUrl) URL.revokeObjectURL(bwPhotoUrl);
+    };
+  }, [data?.photo]);
+
   const handleDownloadPDF = async () => {
     const canvas = await html2canvas(cardRef.current, { scale: 2 });
     const imgData = canvas.toDataURL("image/png");
@@ -79,6 +151,22 @@ function VoterIDGenerator() {
             <p className={styles.headerEnglish}>
               ELECTION COMMISSION OF INDIA
             </p>
+
+            {/* Right side vertical voter ID */}
+            <div className={styles.verticalVoterId}>
+              {data.voterId}
+            </div>
+
+            {/* Right side black & white photo */}
+            {bwPhotoUrl && (
+              <div className={styles.rightPhotoBox}>
+                <img
+                  src={bwPhotoUrl}
+                  alt="Voter BW"
+                  className={styles.bwPhoto}
+                />
+              </div>
+            )}
           </div>
 
           <div className={styles.photoSection}>
@@ -119,7 +207,7 @@ function VoterIDGenerator() {
 
               {/* DOB / Age */}
               <p>जन्मतारीख / वय:</p>
-              <p>Date of Birth / Age: {data.dob}</p>
+              <p>Date of Birth / Age: {formatDOB(data.dob)}</p>
             </div>
           </div>
 
@@ -154,7 +242,9 @@ function VoterIDGenerator() {
             <div className={styles.officerText}>
               <p>मतदार नोंदणी अधिकारी, 137 - भिवंडी पूर्व</p>
               <p>Electoral Registration Officer, 137 - Bhiwandi East</p>
-              <p className={styles.downloadDate}>Download Date: {new Date().toLocaleDateString()}</p>
+              <p className={styles.downloadDate}>
+                Download Date: {downloadDate}
+              </p>
             </div>
           </div>
 
